@@ -1,0 +1,13 @@
+<ul>
+  <li ng-repeat="p in personEnts">
+    Name: <b>{{p.person.name}}</b>, Age: <b>{{p.person.age}} </b> (id: {{p.id}})
+
+    <button data-ng-click=del(p.id)
+            .btn .btn-mini .btn-warning >Remove
+
+    <button data-ng-click=go(#{ viewRouteJSArgs $ SinglePersonNgR (NgRtVar "p.id") })
+            .btn .btn-mini .btn-primary >Edit
+
+    <a data-ng-href=#{ viewRoute (SinglePersonNgR (NgRtVar "p.id")) }>Edit
+
+

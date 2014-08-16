@@ -23,6 +23,9 @@ data App = App
     , getStatic :: Static -- ^ Settings for static file serving.
     , httpManager :: Manager
     , appLogger :: Logger
+    , ipeople :: IORef (Map PersonId Person)
+    , nextId :: IORef Int
+    , ngClient :: NgMain PersonClient
     }
 
 instance HasHttpManager App where
@@ -64,12 +67,20 @@ instance Yesod App where
         -- you to use normal widget features in default-layout.
 
         pc <- widgetToPageContent $ do
-            $(combineStylesheets 'StaticR
-                [ css_normalize_css
-                , css_bootstrap_css
-                ])
             $(widgetFile "default-layout")
-        giveUrlRenderer $(hamletFile "templates/default-layout-wrapper.hamlet")
+        giveUrlRenderer [hamlet|
+            $newline never
+            $doctype 5
+            <html>
+                <head>
+                    <title>#{pageTitle p}
+                    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+                    ^{pageHead pc}
+                <body style="padding:20px;">
+                    $maybe msg <- mmsg
+                        <p .message>#{msg}
+                    ^{pageBody pc}
+            |]
 
     -- This is done to provide an optimization for serving static files from
     -- a separate domain. Please see the staticRoot setting in Settings.hs

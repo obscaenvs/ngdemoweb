@@ -1,0 +1,11 @@
+function($scope, PersonService)
+{
+  $scope.newPerson = {};
+  $scope.saveNewPerson =
+    function ()
+    {
+      $scope.saveResult = PersonService.save($scope.newPerson);
+      $scope.newPerson = {};
+    };
+};
+

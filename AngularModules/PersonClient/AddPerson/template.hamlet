@@ -1,0 +1,8 @@
+<form name=addPersonForm ng-submit="saveNewPerson()" novalidate>
+  <p>Name:
+    <br><input type=text ng-model=newPerson.name required> 
+  <p>Age:
+    <br><input type=number ng-model=newPerson.age ng-maxlength=3 ng-minlength=1 required> 
+  <p>
+    <button type=submit .btn .btn-primary ng-disabled="!addPersonForm.$valid">Create new person
+  <p>{{saveResult}}

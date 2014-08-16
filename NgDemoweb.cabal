@@ -19,6 +19,8 @@ library
                      Settings.StaticFiles
                      Settings.Development
                      Handler.Home
+                     Angular
+                     AngularDemo
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT

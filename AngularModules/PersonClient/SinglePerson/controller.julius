@@ -1,0 +1,16 @@
+function($scope, $routeParams, PersonService, $location)
+{
+  locId = $routeParams.personId;
+  $scope.person = PersonService.get({personId: locId});
+  $scope.saveResult = {};
+
+
+  $scope.saveEditPerson =
+    function ()
+    {
+      $scope.saveResult = PersonService.save({personId: locId}, $scope.person);
+      $location.path(''); // "goto default route"
+    };
+
+};
+

@@ -1,0 +1,13 @@
+function($scope, $location, PersonService)
+{
+  $scope.personEnts = PersonService.query();
+
+  $scope.go = function ( path ) {
+    $location.path( path );
+  };
+
+  $scope.del = function (pid) {
+      PersonService.remove({personId: pid});
+      $location.path( '/' );
+  };
+};

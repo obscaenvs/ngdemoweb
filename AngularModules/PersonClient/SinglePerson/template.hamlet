@@ -1,0 +1,7 @@
+<form name=saveEditPersonForm ng-submit="saveEditPerson()" novalidate>
+  <p>Name:
+    <br><input type=text ng-model=person.name required> 
+  <p>Age:
+    <br><input type=number ng-model=person.age ng-maxlength=3 ng-minlength=1 required> 
+  <p>
+    <button type=submit .btn .btn-primary ng-disabled="!saveEditPersonForm.$valid">Update

@@ -3,4 +3,7 @@
 /favicon.ico FaviconR GET
 /robots.txt RobotsR GET
 
-/ HomeR GET POST
+/                                     HomeR
+/cpartials/#ViewName-PersonClient     PersonTemplateR GET
+/person-res/#PersonId                 NgPersonResR             GET POST DELETE
+/person-res/                          NgPersonResNoArgR        GET POST

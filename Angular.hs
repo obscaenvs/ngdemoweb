@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings, TemplateHaskell, QuasiQuotes, FlexibleInstances, TypeFamilies, GeneralizedNewtypeDeriving #-}
-module AngularDemoTypes where
+module Angular where
 
 import           Yesod
 
